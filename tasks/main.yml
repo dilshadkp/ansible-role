@@ -1,0 +1,24 @@
+---
+# tasks file for fetch_infra
+###############################-FETCH DETAILS FROM AWS AND REGISTER-############################
+- name: "Fetch details Servers"  
+  ec2_instance_info:
+    access_key: "{{accesskey}}"
+    secret_key: "{{secretkey}}"
+    region: "{{region}}"
+    filters:
+      "tag:env": "{{env}}"
+      "tag:project": "{{project}}"
+  register: server_info
+###############################-CREATE IN-MEMORY INVENTORY-#####################################
+- name: "Create in-memory inventory"
+  add_host:
+    groups: "server"
+    hostname: "{{ item.public_ip_address }}"
+    ansible_host: "{{ item.public_ip_address }}"
+    ansible_user: "{{ssh_user}}"
+    ansible_port: 22
+    ansible_private_key_file: "{{key_name}}.pem"
+    ansible_ssh_common_args: "-o StrictHostKeyChecking=no"
+  with_items:
+    - "{{server_info.instances}}"

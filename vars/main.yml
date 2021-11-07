@@ -1,0 +1,42 @@
+---
+# vars file for fetch_infra
+vars_prompt:
+- name: "accesskey"
+  prompt: "Enter Access Key"
+  confirm: yes
+  default: "AKIAYDHRXJRBMDGSDVJA"
+
+- name: "secretkey"
+  prompt: "Enter Secret Key"
+  confirm: yes
+  default: "ckRN6/hGwRmpHcCTUXYSh5LijhQwE8y/eiiyyVGD"
+
+- name: "region"
+  prompt: "Enter Region"
+  private: no
+  default: "ap-south-1"
+
+- name: "project"
+  prompt: "Enter Project Name"
+  private: no
+  confirm: yes
+
+- name: "env"
+  prompt: "Enter the environment(stg/prod)"
+  private: no
+  confirm: yes
+
+- name: "ssh_user"
+  prompt: "Enter SSH user of servers"
+  private: no
+  confirm: yes
+
+- name: "ssh_port"
+  prompt: "Enter SSH port of servers"
+  private: no
+  confirm: yes  
+
+- name: "key_name"
+  prompt: "Enter the SSH key name"
+  private: no
+  default: "webserver"      
