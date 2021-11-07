@@ -1,11 +1,11 @@
 ---
 # vars file for fetch_infra
 ---
-accesskey: "AKIAYDHRXJRBMDGSDVJA"
-secretkey: "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"
-region: "ap-south-1"
-project: "uber"
-env: "stg"
-ssh_user: "ec2-user"
-ssh_port: "22"
-key_name: "webserver"
+accesskey: ""
+secretkey: ""
+region: ""
+project: ""
+env: ""
+ssh_user: ""
+ssh_port: ""
+key_name: ""
